@@ -86,11 +86,11 @@ android {
 
     buildTypes {
         debug {
-            resValue("string", "google_maps_key", localProperties['apiKey'])
+            resValue("string", "google_maps_key", "AIzaSyBdeq3N-H_9nlHHO9jX3z3gxT3cY2M_hps")
             buildConfigField("String", "BASE_URL", "\"wss://d2d-frontend-code-challenge.herokuapp.com\"")
         }
         release {
-
+            resValue("string", "google_maps_key", "AIzaSyBdeq3N-H_9nlHHO9jX3z3gxT3cY2M_hps")
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField("String", "BASE_URL", "\"wss://d2d-frontend-code-challenge.herokuapp.com\"")
