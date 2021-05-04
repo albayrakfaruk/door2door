@@ -3,13 +3,18 @@
     package="com.onur.door2door">
 
     <application
-        android:allowBackup="true"
+        android:name=".app.Door2DoorApp"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Door2door">
-        <activity android:name=".MainActivity">
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/MapsTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
