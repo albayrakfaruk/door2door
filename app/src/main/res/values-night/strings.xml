@@ -1,8 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">door2door</string>
     <string name="give_up_capital">Give up</string>
     <string name="go_to_settings">Go to settings</string>
     <string name="permission_req_title">Permission Required</string>
-    <string name="permission_req_desc">You need to give permission to track your location.</string>
     <string name="try_again">Try again</string>
 </resources>

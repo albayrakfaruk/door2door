@@ -1,8 +1,9 @@
-package com.onur.door2door.app
+package com.onur.door2door
 
 import android.app.Application
 import com.google.android.libraries.places.api.Places
 import com.onur.door2door.R
+import dagger.hilt.android.HiltAndroidApp
 
 
 /**
@@ -10,12 +11,11 @@ import com.onur.door2door.R
  * Loodos
  * onur.seref@loodos.com
  */
+@HiltAndroidApp
 class Door2DoorApp : Application() {
+
     override fun onCreate() {
         super.onCreate()
-        Places.initialize(applicationContext, getString(R.string.google_maps_key));
-        /*Simulator.geoApiContext = GeoApiContext.Builder()
-            .apiKey(getString(R.string.google_maps_key))
-            .build()*/
+        Places.initialize(applicationContext, getString(R.string.google_maps_key))
     }
 }
