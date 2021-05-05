@@ -5,6 +5,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.onur.door2door.R
 import com.onur.door2door.databinding.ActivityMainBinding
 import com.onur.door2door.ui.base.BaseActivity
+import com.onur.door2door.ui.component.MapComponent
 import com.onur.door2door.utility.providers.LocationProvider
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -14,11 +15,12 @@ import dagger.hilt.android.AndroidEntryPoint
  * onur.seref@loodos.com
  */
 @AndroidEntryPoint
-class MainActivity : BaseActivity<ActivityMainBinding>() {
+class MainActivity : BaseActivity<ActivityMainBinding>(), MapComponent.MapReadyListener {
 
     private val mainViewModel: MainViewModel by viewModels()
     private lateinit var provider: LocationProvider
-
+    private var currentLatitude = 0.0
+    private var currentLongitude = 0.0
     override fun getLayoutId(): Int {
         return R.layout.activity_main
     }
@@ -28,16 +30,23 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             lifecycleOwner = this@MainActivity
             viewModel = mainViewModel
         }
+        binding.map.setupMap(this)
         provider = LocationProvider(this,
             onSuccess = { latitude, longitude ->
-
+                currentLatitude = latitude
+                currentLongitude = longitude
+                binding.map.moveCamera(currentLatitude, currentLongitude, 17f)
             },
             onFail = { showFailDialog() },
             onPermissionFail = { onBackPressed() },
-            onRequestFail = {},
+            onRequestFail = { onBackPressed() },
             onShowLoading = { },
             onStopLoading = { })
         provider.checkLocation()
+    }
+
+    override fun onMapReady() {
+
     }
 
     private fun showFailDialog() {
