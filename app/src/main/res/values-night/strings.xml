@@ -4,4 +4,7 @@
     <string name="go_to_settings">Go to settings</string>
     <string name="permission_req_title">Permission Required</string>
     <string name="try_again">Try again</string>
+    <string name="where_to">Where to</string>
+    <string name="pickup_location">Pickup location</string>
+    <string name="request_cab">Request Cab</string>
 </resources>

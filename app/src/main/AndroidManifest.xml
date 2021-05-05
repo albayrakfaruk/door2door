@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.onur.door2door">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".Door2DoorApp"
         android:allowBackup="false"

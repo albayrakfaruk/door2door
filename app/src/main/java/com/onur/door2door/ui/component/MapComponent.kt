@@ -51,19 +51,7 @@ class MapComponent @JvmOverloads constructor(
             googleMap?.isMyLocationEnabled = true
         }
         googleMap?.uiSettings?.isRotateGesturesEnabled = false
-        googleMap?.uiSettings?.isMyLocationButtonEnabled = false
-    }
-
-    fun clear() {
-        googleMap?.clear()
-    }
-
-    fun addMarker(latitude: Double, longitude: Double, iconId: Int, isDraggable: Boolean = false) {
-        val markerOptions = MarkerOptions()
-        markerOptions.icon(BitmapDescriptorFactory.fromResource(iconId))
-        markerOptions.draggable(isDraggable)
-        markerOptions.position(LatLng(latitude, longitude))
-        gMarker = googleMap?.addMarker(markerOptions)
+        googleMap?.uiSettings?.isMyLocationButtonEnabled = true
     }
 
     override fun onMapReady(googleMap: GoogleMap?) {
@@ -95,6 +83,18 @@ class MapComponent @JvmOverloads constructor(
             duration,
             null
         )
+    }
+
+    fun clear() {
+        googleMap?.clear()
+    }
+
+    fun addMarker(latitude: Double, longitude: Double, iconId: Int, isDraggable: Boolean = false) {
+        val markerOptions = MarkerOptions()
+        markerOptions.icon(BitmapDescriptorFactory.fromResource(iconId))
+        markerOptions.draggable(isDraggable)
+        markerOptions.position(LatLng(latitude, longitude))
+        gMarker = googleMap?.addMarker(markerOptions)
     }
 
     fun setMarker(lat: Double, long: Double) {
