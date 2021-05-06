@@ -56,56 +56,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), MapComponent.MapReadyL
             onShowLoading = { },
             onStopLoading = { })
         provider.checkLocation()
-        binding.pickUpTextView.setOnClickListener {
-            launchLocationAutoCompleteActivity(AppConstants.PICKUP_REQUEST_CODE)
-        }
-        binding.dropTextView.setOnClickListener {
-            launchLocationAutoCompleteActivity(AppConstants.DROP_REQUEST_CODE)
-        }
     }
 
-    override fun onMapReady() {
-
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == AppConstants.PICKUP_REQUEST_CODE || requestCode == AppConstants.DROP_REQUEST_CODE) {
-            when (resultCode) {
-                Activity.RESULT_OK -> {
-                    val place = Autocomplete.getPlaceFromIntent(data!!)
-                    when (requestCode) {
-                        AppConstants.PICKUP_REQUEST_CODE -> {
-                            binding.pickUpTextView.text = place.name
-                            pickUpLatLng = place.latLng
-                            checkAndShowRequestButton()
-                        }
-                        AppConstants.DROP_REQUEST_CODE -> {
-                            binding.dropTextView.text = place.name
-                            dropLatLng = place.latLng
-                            checkAndShowRequestButton()
-                        }
-                        PermissionConstants.DEFAULT_SETTINGS_REQ_CODE -> {
-                            provider.checkLocation()
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private fun checkAndShowRequestButton() {
-        binding.requestCabButton.visibility =
-            if (dropLatLng != null && pickUpLatLng != null) View.VISIBLE else View.GONE
-    }
-
-    private fun launchLocationAutoCompleteActivity(requestCode: Int) {
-        val fields: List<Place.Field> =
-            listOf(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG)
-        val intent = Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY, fields)
-            .build(this)
-        startActivityForResult(intent, requestCode)
-    }
+    override fun onMapReady() = Unit
 
     private fun showFailDialog() {
         val builder = MaterialAlertDialogBuilder(this)
