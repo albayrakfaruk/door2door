@@ -15,7 +15,7 @@ import org.json.JSONObject
 @ExperimentalCoroutinesApi
 class HerokuWebSocketListener : WebSocketListener() {
 
-    val socketEventChannel: Channel<JSONObject> = Channel(10)
+    val socketEventChannel: Channel<JSONObject> = Channel(Channel.UNLIMITED)
 
     override fun onOpen(webSocket: WebSocket, response: Response) = Unit
 
