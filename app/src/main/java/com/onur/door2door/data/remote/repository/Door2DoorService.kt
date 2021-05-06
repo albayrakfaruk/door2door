@@ -11,7 +11,6 @@ import javax.inject.Inject
  *   Created by farukalbayrak on 05.05.2021.
  */
 
-@ExperimentalCoroutinesApi
 class Door2DoorService @Inject constructor(
     private var socket: WebSocket,
     private var herokuWebSocketListener: HerokuWebSocketListener

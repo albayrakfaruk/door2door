@@ -12,7 +12,6 @@ import okhttp3.WebSocket
 import okhttp3.WebSocketListener
 import org.json.JSONObject
 
-@ExperimentalCoroutinesApi
 class HerokuWebSocketListener : WebSocketListener() {
 
     val socketEventChannel: Channel<JSONObject> = Channel(Channel.UNLIMITED)

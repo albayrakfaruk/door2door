@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.flow
  *   Created by farukalbayrak on 05.05.2021.
  */
 @Suppress("UNCHECKED_CAST")
-@ExperimentalCoroutinesApi
 class Door2DoorRepository(private val doorService: Door2DoorService) {
 
     suspend fun startSocket() = flow<State> {
