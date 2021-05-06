@@ -55,6 +55,7 @@
                 android:paddingEnd="8dp"
                 android:paddingBottom="6dp"
                 android:singleLine="true"
+                android:text="@{viewModel.pickupLocationLiveData.address}"
                 android:textColor="@android:color/black"
                 android:textColorHint="@android:color/darker_gray"
                 android:textSize="16sp"
@@ -96,14 +97,37 @@
                 android:paddingEnd="8dp"
                 android:paddingBottom="6dp"
                 android:singleLine="true"
+                android:text="@{viewModel.dropOffLocationLiveData.address}"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/dropIndicator"
+                app:layout_constraintTop_toBottomOf="@+id/pickUpTextView" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:ellipsize="end"
+                android:hint="@string/status"
+                android:paddingStart="8dp"
+                android:paddingTop="6dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="6dp"
+                android:singleLine="true"
+                android:text="@{viewModel.statusLiveData}"
                 android:textColor="@android:color/black"
                 android:textColorHint="@android:color/darker_gray"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/dropIndicator"
-                app:layout_constraintTop_toBottomOf="@+id/pickUpTextView" />
+                app:layout_constraintTop_toBottomOf="@+id/dropTextView" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
-        
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
